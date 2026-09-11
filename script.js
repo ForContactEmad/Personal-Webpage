@@ -1,10 +1,12 @@
-$(document.ready).ready(function () {
-  
+$(document).ready(function () {
+
   // Custom jQuery extension for Typing Effect
   $.fn.writeText = function (content) {
     const contentArray = content.split('');
     let current = 0;
     const $elem = this;
+
+    $elem.text('');
 
     const timer = setInterval(() => {
       if (current < contentArray.length) {
@@ -15,17 +17,14 @@ $(document.ready).ready(function () {
     }, 80);
   };
 
-  // Initialize plugins and UI elements
+  // Initialize UI elements
   const initApp = () => {
-    // Start typing animation
-    $('#holder').writeText('WEB DESIGNER + FRONT-END DEVELOPER');
-
-    // Initialize WOW.js for scroll animations
-    if (typeof WOW === 'function') {
-      new WOW().init();
+    const $holder = $('#holder');
+    if ($holder.length) {
+      $holder.writeText('WEB DESIGNER + FRONT-END DEVELOPER');
     }
 
-    // Initialize Skill Bar colors dynamically from dataset
+    // Initialize Skill Bar dynamic colors
     $('.skillbar').each(function () {
       const color = $(this).data('color');
       if (color) {
@@ -34,7 +33,7 @@ $(document.ready).ready(function () {
     });
   };
 
-  // Mobile Navigation Drawer Toggle
+  // Mobile Navigation Toggle
   const setupMobileNav = () => {
     const $body = $('body');
 
@@ -49,53 +48,71 @@ $(document.ready).ready(function () {
 
   // FullPage.js Configuration
   const setupFullPage = () => {
-    $('#fullpage').fullpage({
-      scrollBar: true,
-      responsiveWidth: 400,
-      navigation: true,
-      navigationTooltips: ['home', 'about', 'portfolio', 'contact', 'connect'],
-      anchors: ['home', 'about', 'portfolio', 'contact', 'connect'],
-      menu: '#myMenu',
-      fitToSection: false,
+    const $fullpage = $('#fullpage');
 
-      afterLoad: function (anchorLink, index) {
-        const $navbar = $('#navbar');
+    if ($.fn.fullpage && $fullpage.length) {
+      $fullpage.fullpage({
+        scrollBar: true,
+        responsiveWidth: 500,
+        navigation: true,
+        navigationTooltips: ['home', 'about', 'portfolio', 'contact'],
+        anchors: ['home', 'about', 'portfolio', 'contact'],
+        menu: '#myMenu',
+        fitToSection: false,
 
-        // Toggle navbar header styles based on active section
-        if (index === 1) {
-          $navbar.removeClass('navbar--scrolled');
-        } else {
-          $navbar.addClass('navbar--scrolled');
+        afterLoad: function (anchorLink, index) {
+          const $navbar = $('#navbar');
+
+          if (index === 1) {
+            $navbar.removeClass('navbar--scrolled');
+          } else {
+            $navbar.addClass('navbar--scrolled');
+          }
+
+          if (index === 2) {
+            $('.skillbar').each(function () {
+              const percent = $(this).data('percent');
+              $(this).find('.skillbar__bar').css('width', percent);
+            });
+          }
+        },
+
+        onLeave: function (index, nextIndex, direction) {
+          if (index === 2) {
+            $('.skillbar__bar').css('width', '0');
+          }
         }
+      });
+    }
+  };
 
-        // Trigger Skill Bars animation when entering 'About' section (Index 2)
-        if (index === 2) {
-          $('.skillbar').each(function () {
-            const percent = $(this).data('percent');
-            $(this).find('.skillbar__bar').css('width', percent);
-          });
+  // Navigation Handlers
+  const setupNavigationHandlers = () => {
+    $(document).on('click', '#moveDownBtn', function (e) {
+      e.preventDefault();
+      if ($.fn.fullpage && $.fn.fullpage.moveSectionDown) {
+        $.fn.fullpage.moveSectionDown();
+      } else {
+        const $aboutSection = $('[data-anchor="about"]');
+        if ($aboutSection.length) {
+          $('html, body').animate({
+            scrollTop: $aboutSection.offset().top
+          }, 800);
         }
       }
     });
   };
 
-  // Event Handlers for Custom Navigation Controls
-  const setupNavigationHandlers = () => {
-    // Scroll down button
-    $(document).on('click', '#moveDownBtn', () => {
-      $.fn.fullpage.moveSectionDown();
-    });
-  };
-
-  // Contact Form AJAX Submission with Error Handling
+  // Contact Form Submission
   const setupContactForm = () => {
     const $form = $('#ajax-contact');
     const $formMessages = $('#form-messages');
 
+    if (!$form.length) return;
+
     $form.on('submit', function (e) {
       e.preventDefault();
 
-      // Check spam honeypot field
       if ($('#human').val() !== '') {
         return false;
       }
@@ -113,7 +130,6 @@ $(document.ready).ready(function () {
           .addClass('success')
           .text(response || 'Thank you! Your message has been sent.');
 
-        // Clear input fields
         $form.find('input[type="text"], input[type="email"], textarea').val('');
       })
       .fail((data) => {
@@ -130,7 +146,7 @@ $(document.ready).ready(function () {
     });
   };
 
-  // Initialize All Modules
+  // Initialize All
   initApp();
   setupMobileNav();
   setupFullPage();
