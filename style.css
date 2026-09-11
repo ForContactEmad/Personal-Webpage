@@ -1,0 +1,446 @@
+/* ==========================================================================
+   CSS Variables & Design Tokens
+   ========================================================================== */
+:root {
+  --primary-color: #ff6363;
+  --text-dark: #484848;
+  --text-light: #ffffff;
+  --bg-dark: #000000;
+  --bg-footer: #484848;
+  --font-main: "Raleway", sans-serif;
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-out;
+  --transition-slow: 0.6s ease-in-out;
+}
+
+/* ==========================================================================
+   Base & General Styles
+   ========================================================================== */
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  position: relative;
+  right: 0;
+  transition: right 0.2s ease-in-out;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+p {
+  font-size: 20px;
+  color: var(--text-dark);
+}
+
+.section {
+  text-align: center;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Screen Shift Class for Mobile Sidebar */
+body.nav-open {
+  right: 285px;
+}
+
+body.nav-open .mobile-nav {
+  right: 0;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  transition: background-color var(--transition-fast);
+}
+
+.navbar--scrolled {
+  background-color: white;
+}
+
+.navbar--scrolled .navbar__links a {
+  color: black;
+}
+
+.navbar__brand {
+  position: fixed;
+  left: 0;
+  z-index: 600;
+  padding: 10px;
+}
+
+.navbar__brand img {
+  width: 50px;
+}
+
+.navbar__links {
+  width: 100%;
+}
+
+.navbar__links li {
+  display: inline;
+  float: right;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.navbar__links a {
+  color: var(--text-light);
+  transition: color var(--transition-fast);
+}
+
+.navbar__links a:hover {
+  color: var(--primary-color) !important;
+}
+
+.navbar__links a::after {
+  content: "";
+  display: block;
+  margin: 5px auto 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-light);
+  opacity: 0;
+  transition: width 0.6s, opacity 0.8s;
+}
+
+.navbar__links a:hover::after,
+.navbar__links a:focus::after {
+  opacity: 1;
+  width: 100%;
+}
+
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  float: right;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  z-index: 500;
+  cursor: pointer;
+}
+
+/* Mobile Sidebar Menu */
+.mobile-nav {
+  height: 100%;
+  width: 285px;
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  right: -285px;
+  background-color: var(--bg-dark);
+  transition: right 0.2s ease-in-out;
+}
+
+.mobile-nav__close {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  float: right;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.mobile-nav__container {
+  padding-top: 10%;
+}
+
+.mobile-nav__links {
+  width: 250px;
+  margin: 15% auto 0;
+  text-align: center;
+}
+
+.mobile-nav__links a {
+  color: var(--text-light);
+  font-size: 30px;
+  line-height: 2.5;
+  font-weight: bold;
+}
+
+.mobile-nav__links a:hover {
+  color: var(--primary-color);
+  transition: color var(--transition-slow);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero-section {
+  background: url("https://s3-us-west-2.amazonaws.com/files.bradengelhardt.com/brad-bg-main.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.hero-section__content {
+  margin: 0 auto;
+  max-width: 380px;
+  padding: 1px 1px 5px 5px;
+}
+
+.hero-section__title--accent {
+  color: var(--primary-color);
+}
+
+.hero-section__subtitle {
+  color: var(--text-light);
+  font-weight: 100;
+  font-size: 17.4px;
+}
+
+.hero-section__scroll-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color) !important;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+}
+
+/* Animation Keyframes */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+.blinking-cursor {
+  font-weight: 500;
+  margin-left: 4px;
+  font-size: 20px;
+  color: var(--text-light);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { color: transparent; }
+  50% { color: white; }
+}
+
+/* ==========================================================================
+   Skills Section
+   ========================================================================== */
+.container-skillbar {
+  width: 100%;
+  padding: 30px 2% 0;
+}
+
+.skillbar {
+  position: relative;
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  background: #efefef;
+  height: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.skillbar__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--text-light);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.skillbar__title span {
+  display: block;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0 20px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.skillbar__bar {
+  height: 30px;
+  width: 0;
+  border-radius: 3px;
+  transition: width 2.5s ease-out;
+}
+
+.skillbar__percent {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 11px;
+  height: 30px;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   Portfolio Section
+   ========================================================================== */
+.content, .content-slide {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.content-slide img {
+  width: 70%;
+}
+
+.fp-controlArrow.fp-next {
+  border-color: transparent transparent transparent var(--primary-color) !important;
+  right: 45px !important;
+}
+
+.fp-controlArrow.fp-prev {
+  border-color: transparent var(--primary-color) transparent transparent !important;
+  left: 45px !important;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+.contact-form {
+  padding: 0 15px;
+}
+
+.form-control {
+  border: 2px solid rgba(0, 0, 0, 0.27);
+  width: 100%;
+  height: 3em;
+  font-size: 16px;
+  padding: 1em;
+  margin: 0.5em 0 2em;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+textarea.form-control {
+  min-height: 10em;
+}
+
+.btn {
+  outline: none;
+  padding: 12px;
+  min-width: 200px;
+  border-radius: 2px;
+  border: 2px solid var(--primary-color);
+  font-size: 1em;
+  color: var(--primary-color);
+  background-color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Form Messages Alerts */
+.success, .error {
+  padding: 1em;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+}
+
+.success {
+  color: #468847;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+}
+
+.error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border: 1px solid rgba(185, 74, 72, 0.3);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  background-color: var(--bg-footer);
+  height: 100px;
+  padding-top: 10px;
+}
+
+.footer p {
+  color: var(--text-light);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.social-links a {
+  color: var(--text-light);
+  padding: 0 5px;
+  transition: color var(--transition-fast);
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 500px) {
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .content {
+    max-width: 300px;
+  }
+
+  .hero-section__content h1 {
+    font-size: 28px;
+  }
+}
