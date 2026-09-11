@@ -101,8 +101,18 @@ body.nav-open .mobile-nav {
   padding: 10px;
 }
 
-.navbar__brand img {
-  width: 50px;
+.navbar__brand svg {
+  vertical-align: middle;
+  height: 40px;
+  width: auto;
+}
+
+.navbar__brand text {
+  transition: fill var(--transition-fast);
+}
+
+.navbar--scrolled .navbar__brand text:last-child {
+  fill: var(--text-dark);
 }
 
 .navbar__links {
@@ -352,7 +362,7 @@ body.nav-open .mobile-nav {
 }
 
 /* ==========================================================================
-   Contact Section
+   Contact Section & Alerts
    ========================================================================== */
 .contact-form {
   padding: 0 15px;
@@ -394,22 +404,27 @@ textarea.form-control {
 }
 
 /* Form Messages Alerts */
-.success, .error {
-  padding: 1em;
-  margin-bottom: 0.75rem;
+#form-messages {
+  display: none;
+  padding: 12px 15px;
+  margin-top: 15px;
   border-radius: 4px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-.success {
-  color: #468847;
-  background-color: #dff0d8;
-  border: 1px solid #d6e9c6;
+#form-messages.success {
+  display: block;
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
 }
 
-.error {
-  color: #b94a48;
-  background-color: #f2dede;
-  border: 1px solid rgba(185, 74, 72, 0.3);
+#form-messages.error {
+  display: block;
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
 }
 
 /* ==========================================================================
