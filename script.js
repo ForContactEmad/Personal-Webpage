@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Main JavaScript - Portfolio & Contact Form
+   Main JavaScript - Portfolio & Contact Form Processing
    ========================================================================== */
 
 $(document.documentElement).addClass('js');
@@ -32,14 +32,14 @@ $(document).ready(function() {
     $(window).on('scroll', function() {
         const scrollPos = $(window).scrollTop();
 
-        // إضافة خلفية للهيدر عند التمرير لأسفل
+        // تغيير خلفية الهيدر عند التمرير لأسفل
         if (scrollPos > 50) {
             $navbar.addClass('navbar--scrolled');
         } else {
             $navbar.removeClass('navbar--scrolled');
         }
 
-        // تحديث الرابط النشط في القائمة تلقائياً
+        // تحديث العنصر النشط في القائمة تلقائياً
         $sections.each(function() {
             const top = $(this).offset().top - 100;
             const bottom = top + $(this).outerHeight();
@@ -53,19 +53,17 @@ $(document).ready(function() {
     });
 
     /* ----------------------------------------------------------------------
-       3. AJAX Contact Form Submission (FormSubmit)
+       3. AJAX Contact Form Submission (FormSubmit Engine)
        ---------------------------------------------------------------------- */
     const $contactForm = $('#ajax-contact');
     const $formMessages = $('#form-messages');
 
     $contactForm.on('submit', function(e) {
-        // منع المتصفح من الانتقال لصفحة FormSubmit الخارجية
         e.preventDefault();
 
         const $submitBtn = $contactForm.find('button[type="submit"]');
         const originalBtnText = $submitBtn.text();
 
-        // تغيير حالة الزر أثناء الإرسال
         $submitBtn.prop('disabled', true).text('جاري الإرسال...');
         $formMessages.removeClass('success error').hide();
 
@@ -73,26 +71,33 @@ $(document).ready(function() {
             url: $contactForm.attr('action'),
             method: 'POST',
             data: $contactForm.serialize(),
-            dataType: 'json',
+            headers: {
+                'Accept': 'application/json' // إجبار السيرفر على إرجاع JSON
+            },
             success: function(response) {
-                // إظهار رسالة النجاح داخل الموقع
                 $formMessages
                     .removeClass('error')
                     .addClass('success')
                     .text('تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.')
                     .fadeIn();
 
-                // إعادة إعادة ضبط الحقول والزر
                 $contactForm[0].reset();
                 $submitBtn.prop('disabled', false).text(originalBtnText);
             },
-            error: function(err) {
-                // إظهار رسالة الخطأ
-                $formMessages
-                    .removeClass('success')
-                    .addClass('error')
-                    .text('حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.')
-                    .fadeIn();
+            error: function(xhr, status, error) {
+                if (xhr.status === 0 || xhr.status === 403) {
+                    $formMessages
+                        .removeClass('success')
+                        .addClass('error')
+                        .text('يرجى التحقق من بريدك الإلكتروني والضغط على رابط التفعيل (Activate Form) أولاً.')
+                        .fadeIn();
+                } else {
+                    $formMessages
+                        .removeClass('success')
+                        .addClass('error')
+                        .text('حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.')
+                        .fadeIn();
+                }
 
                 $submitBtn.prop('disabled', false).text(originalBtnText);
             }
