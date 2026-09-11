@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brad Engelhardt | Web Designer & Developer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__brand">
+      <a href="#home">
+        <img src="https://s3-us-west-2.amazonaws.com/parallax-theme/assets/bradlogo2.png" alt="Brad Engelhardt Logo">
+      </a>
+    </div>
+
+    <button class="navbar__toggle" id="navOpenBtn" aria-label="Open Navigation Menu">
+      <i class="fa fa-bars fa-3x"></i>
+    </button>
+
+    <nav class="navbar__links">
+      <ul>
+        <li data-menuanchor="about"><a href="#about">ABOUT</a></li>
+        <li data-menuanchor="portfolio"><a href="#portfolio">PORTFOLIO</a></li>
+        <li data-menuanchor="contact"><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sidebar Slider Menu -->
+  <aside class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav__close" id="navCloseBtn" aria-label="Close Navigation Menu">
+      <i class="fa fa-times fa-3x"></i>
+    </button>
+    <div class="mobile-nav__container">
+      <nav class="mobile-nav__links">
+        <ul id="myMenu">
+          <li data-menuanchor="about"><a href="#about">ABOUT</a></li>
+          <li data-menuanchor="portfolio"><a href="#portfolio">PORTFOLIO</a></li>
+          <li data-menuanchor="contact"><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Fullpage Container -->
+  <main id="fullpage">
+
+    <!-- Hero Section -->
+    <section class="section hero-section" data-anchor="home">
+      <div class="hero-section__content opaque-bg animated fadeInDown">
+        <h1 class="hero-section__title">
+          BRAD<span class="hero-section__title--accent">/</span>ENGELHARDT
+        </h1>
+        <p class="hero-section__subtitle">
+          <span id="holder"></span><span class="blinking-cursor">|</span>
+        </p>
+      </div>
+      <button id="moveDownBtn" class="hero-section__scroll-btn" aria-label="Scroll Down">
+        <i class="fa fa-chevron-down fa-3x bounce"></i>
+      </button>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" data-anchor="about">
+      <div class="content">
+        <h1 class="section__title wow fadeInDown" data-wow-delay="0.2s">ABOUT ME</h1>
+        <p class="section__description wow fadeInDown" data-wow-delay="0.2s">
+          Hi, I'm Brad Engelhardt! I'm a Silicon Valley based Web Designer & Front-end Developer focused on creating clean, responsive web designs!
+        </p>
+
+        <!-- Skills Container -->
+        <div class="container-skillbar wow fadeInUp" data-wow-delay="0.2s">
+          <div class="skillbar" data-percent="90%" data-color="#DD1E2F">
+            <div class="skillbar__title"><span>HTML5</span></div>
+            <div class="skillbar__bar"></div>
+            <div class="skillbar__percent">90%</div>
+          </div>
+
+          <div class="skillbar" data-percent="80%" data-color="#EBB035">
+            <div class="skillbar__title"><span>CSS3</span></div>
+            <div class="skillbar__bar"></div>
+            <div class="skillbar__percent">80%</div>
+          </div>
+
+          <div class="skillbar" data-percent="75%" data-color="#218559">
+            <div class="skillbar__title"><span>Photoshop</span></div>
+            <div class="skillbar__bar"></div>
+            <div class="skillbar__percent">75%</div>
+          </div>
+
+          <div class="skillbar" data-percent="45%" data-color="#6840D4">
+            <div class="skillbar__title"><span>Rails</span></div>
+            <div class="skillbar__bar"></div>
+            <div class="skillbar__percent">45%</div>
+          </div>
+
+          <div class="skillbar" data-percent="30%" data-color="#06A2CB">
+            <div class="skillbar__title"><span>jQuery</span></div>
+            <div class="skillbar__bar"></div>
+            <div class="skillbar__percent">30%</div>
+          </div>
+
+          <div class="skillbar" data-percent="20%" data-color="#AB4DD2">
+            <div class="skillbar__title"><span>PHP</span></div>
+            <div class="skillbar__bar"></div>
+            <div class="skillbar__percent">20%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section" data-anchor="portfolio">
+      <div class="content-slide">
+        <article class="slide">
+          <h1 class="wow fadeInDown" data-wow-delay="0.2s">XFAIRE</h1>
+          <p class="wow fadeInDown" data-wow-delay="0.2s">Digital streaming service</p>
+          <img class="wow fadeInUp" data-wow-delay="0.2s" data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/xfaire.jpg" alt="Xfaire project preview">
+        </article>
+        
+        <article class="slide">
+          <h1>MACHETE ENERGY</h1>
+          <p>Energy drink website</p>
+          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/machete.jpg" alt="Machete Energy project preview">
+        </article>
+
+        <article class="slide">
+          <h1>PORTFOLIO</h1>
+          <p>Mockup of a personal portfolio I was working on for a friend.</p>
+          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/cascioportfolio.jpg" alt="Friend portfolio mockup preview">
+        </article>
+
+        <article class="slide">
+          <h1>THATONEBLOG</h1>
+          <p>Minimalist blogging platform.</p>
+          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/blog.jpg" alt="ThatOneBlog preview">
+        </article>
+
+        <article class="slide">
+          <h1>PIXBORED</h1>
+          <p>Website for sharing images and gifs.</p>
+          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/pixbored.jpg" alt="Pixbored preview">
+        </article>
+
+        <article class="slide">
+          <h1>PERSONAL WEBSITE</h1>
+          <p>Responsive vertical/horizontal header website theme.</p>
+          <img data-src="https://s3-us-west-2.amazonaws.com/bradengelhardt/assets/personalsite.jpg" alt="Personal Website theme preview">
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" data-anchor="contact">
+      <div class="content wow fadeInDown" data-wow-delay="0.2s">
+        <h1>CONTACT ME</h1>
+        <p>Whether you're interested in working with me or just want to say hello, I'd love to hear from you!</p>
+
+        <div class="contact-form">
+          <div id="form-messages" aria-live="polite"></div>
+
+          <form id="ajax-contact" action="contact.php" method="POST">
+            <div class="form-group wow fadeInLeft" data-wow-delay="0.6s">
+              <label for="name" class="sr-only">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="NAME" required>
+            </div>
+
+            <div class="form-group wow fadeInRight" data-wow-delay="0.8s">
+              <label for="email" class="sr-only">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="EMAIL" required>
+            </div>
+
+            <div class="form-group wow fadeInLeft" data-wow-delay="1s">
+              <label for="message" class="sr-only">Message</label>
+              <textarea class="form-control" id="message" name="message" placeholder="MESSAGE" minlength="10" required></textarea>
+            </div>
+
+            <!-- Honeypot anti-spam field -->
+            <div class="is-hidden" aria-hidden="true">
+              <input type="text" id="human" name="human" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="wow fadeInUp" data-wow-delay="1s">
+              <button type="submit" id="submit" class="btn">SEND MESSAGE</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="section fp-auto-height" data-anchor="connect">
+      <footer class="footer">
+        <p>CONNECT WITH ME</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/bradleyengelhardt" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa fa-linkedin fa-2x"></i>
+          </a>
+          <a href="https://twitter.com/bradengelhardt" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <i class="fa fa-twitter fa-2x"></i>
+          </a>
+          <a href="https://github.com/SquishyAndroid" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa fa-github fa-2x"></i>
+          </a>
+          <a href="https://codepen.io/SquishyAndroid/pens/public/" target="_blank" rel="noopener noreferrer" aria-label="CodePen">
+            <i class="fa fa-codepen fa-2x"></i>
+          </a>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
