@@ -1,222 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Emad Almuzaini</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;500;700&display=swap" rel="stylesheet">
-
-  <!-- FullPage.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.css">
-  
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعرض الشخصي - Portfolio</title>
+    
+    <!-- الخطوط وأيقونات Google / FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف CSS الخاص بالمعرض -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header id="navbar" class="navbar">
-    <div class="navbar__brand">
-      <a href="#home">
-<a href="#home" class="logo-link">
-  <svg width="180" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-    <!-- خلفية الشعار الدائرية -->
-    <circle cx="25" cy="25" r="20" fill="#ff6363" />
-    
-    <!-- الحرف الأول من اسمك -->
-    <text x="25" y="32" font-family="'Raleway', sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">E</text>
-    
-    <!-- اسمك الكامل بجانب الشعار -->
-    <text x="55" y="30" font-family="'Raleway', sans-serif" font-size="16" font-weight="bold" fill="#ffffff" letter-spacing="1">EMAD</text>
-  </svg>
-</a>      </a>
-    </div>
-
-    <button id="navOpenBtn" class="navbar__toggle" aria-label="Open Navigation">
-      &#9776;
-    </button>
-
-    <ul id="myMenu" class="navbar__links">
-      <li data-menuanchor="home"><a href="#home">Home</a></li>
-      <li data-menuanchor="about"><a href="#about">About</a></li>
-      <li data-menuanchor="portfolio"><a href="#portfolio">Portfolio</a></li>
-      <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
-    </ul>
-  </header>
-
-  <!-- Mobile Navigation Drawer -->
-  <nav id="mobileNav" class="mobile-nav">
-    <button id="navCloseBtn" class="mobile-nav__close" aria-label="Close Navigation">&times;</button>
-    <div class="mobile-nav__container">
-      <ul class="mobile-nav__links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Main FullPage Sections Wrapper -->
-  <main id="fullpage">
-
-    <!-- Section 1: Home / Hero -->
-    <section class="section hero-section" data-anchor="home">
-      <div class="hero-section__content">
-        <h1>EMAD ALMUZAINI</h1>
-        <p class="hero-section__subtitle">
-          <span id="holder"></span><span class="blinking-cursor">|</span>
-        </p>
-      </div>
-      <button id="moveDownBtn" class="hero-section__scroll-btn bounce" aria-label="Scroll Down">
-        &#9660;
-      </button>
-    </section>
-
-    <!-- Section 2: About / Skills -->
-    <section class="section" data-anchor="about">
-      <div class="content">
-        <h1>ABOUT ME & SKILLS</h1>
-        <p>I am a Full-Stack Web Developer and Systems Administrator passionate about building robust applications, RESTful APIs, and managing secure cloud environments.</p>
-
-        <div class="container-skillbar">
-          <div class="skillbar" data-percent="90%" data-color="#ff6363">
-            <div class="skillbar__title"><span>HTML5</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">90%</div>
-          </div>
-
-          <div class="skillbar" data-percent="85%" data-color="#3b5998">
-            <div class="skillbar__title"><span>CSS3</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">85%</div>
-          </div>
-
-          <div class="skillbar" data-percent="80%" data-color="#f0db4f">
-            <div class="skillbar__title"><span>JavaScript</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">80%</div>
-          </div>
-
-          <div class="skillbar" data-percent="80%" data-color="#0769ad">
-            <div class="skillbar__title"><span>jQuery</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">80%</div>
-          </div>
-
-          <div class="skillbar" data-percent="75%" data-color="#41b883">
-            <div class="skillbar__title"><span>Vue.js</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">75%</div>
-          </div>
-
-          <div class="skillbar" data-percent="85%" data-color="#777bb4">
-            <div class="skillbar__title"><span>PHP</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">85%</div>
-          </div>
-
-          <div class="skillbar" data-percent="85%" data-color="#ff2d20">
-            <div class="skillbar__title"><span>Laravel</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">85%</div>
-          </div>
-
-          <div class="skillbar" data-percent="80%" data-color="#e03226">
-            <div class="skillbar__title"><span>REST API</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">80%</div>
-          </div>
-
-          <div class="skillbar" data-percent="80%" data-color="#00758f">
-            <div class="skillbar__title"><span>MySQL</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">80%</div>
-          </div>
-
-          <div class="skillbar" data-percent="85%" data-color="#f05032">
-            <div class="skillbar__title"><span>Git</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">85%</div>
-          </div>
-
-          <div class="skillbar" data-percent="85%" data-color="#2c3e50">
-            <div class="skillbar__title"><span>Linux</span></div>
-            <div class="skillbar__bar"></div>
-            <div class="skillbar__percent">85%</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3: Portfolio -->
-    <section class="section" data-anchor="portfolio">
-      <div class="content">
-        <h1>PORTFOLIO</h1>
-        
-        <div class="slide" data-anchor="slide1">
-          <div class="content-slide">
-            <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRJ3fEZSsQ8yV835gwj0ATgX7pgzE1p6FgGCCKjMnGOoSnPACQ9H1SeeIPHafIBn4rWmeyyWm-M0yamATY" alt="Laravel Web Application" class="portfolio-img">
-            <h2>Laravel Web Application</h2>
-            <p>Full-stack web application built with Laravel, Vue.js, and MySQL backend.</p>
-          </div>
+    <!-- ==========================================================================
+       Header & Navigation Bar
+       ========================================================================== -->
+    <header id="navbar" class="navbar">
+        <div class="navbar__brand">
+            <a href="#hero">
+                <svg height="40" width="120">
+                    <text x="0" y="30" fill="#ff6363" font-size="24" font-weight="bold">PORTFOLIO</text>
+                </svg>
+            </a>
         </div>
 
-        <div class="slide" data-anchor="slide2">
-          <div class="content-slide">
-            <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcScG9-thxH8TI3nhzE2yazkjsD8m5jTwkpHxiEQr_hWcU4Eb7c7fYp9SmuXbbmaud3fFo01ROVi3sy-LNc" alt="RESTful API Integration" class="portfolio-img">
-            <h2>RESTful API Integration</h2>
-            <p>Custom REST API setup with authentication, rate limiting, and database optimization.</p>
-          </div>
-        </div>
+        <button id="navOpenBtn" class="navbar__toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
-        <div class="slide" data-anchor="slide3">
-          <div class="content-slide">
-            <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRtQtwwfZdu4CuPFg8iqZv16_oUMwZGvQhMWFDGXZy4SMfk62iJFYRFd-6Yvu0ZMjxhDv0bV_rzOzn-rT4" alt="Linux Server Administration" class="portfolio-img">
-            <h2>Linux Server & Security</h2>
-            <p>System administration and environment deployment on Debian, Ubuntu, and Kali Linux.</p>
-          </div>
-        </div>
+        <nav>
+            <ul id="myMenu" class="navbar__links">
+                <li data-menuanchor="hero" class="active"><a href="#hero">الرئيسية</a></li>
+                <li data-menuanchor="about"><a href="#about">من أنا</a></li>
+                <li data-menuanchor="skills"><a href="#skills">المهارات</a></li>
+                <li data-menuanchor="portfolio"><a href="#portfolio">الأعمال</a></li>
+                <li data-menuanchor="contact"><a href="#contact">تواصل معي</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      </div>
+    <!-- ==========================================================================
+       Hero Section
+       ========================================================================== -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-section__content">
+            <h1>أهلاً بك في موقعي الشخصي</h1>
+            <p class="hero-section__subtitle">مطور ويب شَغُوف بابتكار حلول برمجية متميزة<span class="blinking-cursor">|</span></p>
+            <a href="#about" class="hero-section__scroll-btn bounce" aria-label="الانتقال للأسفل">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
     </section>
 
-    <!-- Section 4: Contact -->
-    <section class="section" data-anchor="contact">
-      <div class="content">
-        <h1>CONTACT ME</h1>
-        <div id="form-messages"></div>
-  <form id="ajax-contact" class="contact-form" action="https://formsubmit.co/YourEmail@Example.com" method="POST">
-
-    <!-- إيقاف إعادة التوجيه لصفحة FormSubmit -->
-  <input type="hidden" name="_next" value="https://yourdomain.com/">
-  <!-- تعطيل الكابتشا لمنع إيقاف المستخدم -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="text" id="human" name="human" class="sr-only" tabindex="-1" autocomplete="off">
-          <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-          <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-          <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
-          <button type="submit" id="submit" class="btn">Send Message</button>
-        </form>
-      </div>
+    <!-- ==========================================================================
+       About Section
+       ========================================================================== -->
+    <section id="about" class="section">
+        <div class="content">
+            <h2>من أنا</h2>
+            <p>أنا مطور تطبيقات ومواقع ويب ذو خبرة في بناء واجهات وتطبيقات تفاعلية، حديثة، وسريعة الاستجابة. أعمل بجد لتحويل الأفكار إلى واقع رقمي متكامل بأساليب برمجية حديثة.</p>
+        </div>
     </section>
 
-  </main>
+    <!-- ==========================================================================
+       Skills Section (معدل بالألوان)
+       ========================================================================== -->
+    <section id="skills" class="section">
+        <div class="content">
+            <h2>المهارات البرمجية</h2>
+            
+            <div class="container-skillbar">
+                
+                <!-- HTML5 -->
+                <div class="skillbar">
+                    <div class="skillbar__title skillbar--html"><span>HTML5</span></div>
+                    <div class="skillbar__bar skillbar--html" style="width: 90%;"></div>
+                    <div class="skillbar__percent">90%</div>
+                </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="section">
-      <p>&copy; 2026 Emad Almuzaini. All Rights Reserved.</p>
-    </div>
-  </footer>
+                <!-- CSS3 -->
+                <div class="skillbar">
+                    <div class="skillbar__title skillbar--css"><span>CSS3</span></div>
+                    <div class="skillbar__bar skillbar--css" style="width: 85%;"></div>
+                    <div class="skillbar__percent">85%</div>
+                </div>
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"></script>
-  <script src="script.js"></script>
+                <!-- JavaScript -->
+                <div class="skillbar">
+                    <div class="skillbar__title skillbar--js"><span>JavaScript</span></div>
+                    <div class="skillbar__bar skillbar--js" style="width: 75%;"></div>
+                    <div class="skillbar__percent">75%</div>
+                </div>
+
+                <!-- PHP -->
+                <div class="skillbar">
+                    <div class="skillbar__title skillbar--php"><span>PHP</span></div>
+                    <div class="skillbar__bar skillbar--php" style="width: 70%;"></div>
+                    <div class="skillbar__percent">70%</div>
+                </div>
+
+                <!-- WordPress -->
+                <div class="skillbar">
+                    <div class="skillbar__title skillbar--wordpress"><span>WordPress</span></div>
+                    <div class="skillbar__bar skillbar--wordpress" style="width: 80%;"></div>
+                    <div class="skillbar__percent">80%</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       Portfolio Section
+       ========================================================================== -->
+    <section id="portfolio" class="section">
+        <div class="content">
+            <h2>معرض الأعمال</h2>
+            <p>إليك بعض المشاريع التي قمت بتطويرها مؤخراً:</p>
+            
+            <div class="portfolio-grid">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="مشروع 1" class="portfolio-img">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="مشروع 2" class="portfolio-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       Contact Section (معالج بالـ AJAX)
+       ========================================================================== -->
+    <section id="contact" class="section">
+        <div class="content">
+            <h2>تواصل معي</h2>
+            <p>هل لديك مشروع أو استفسار؟ لا تتردد في مراسلتي:</p>
+
+            <form id="ajax-contact" class="contact-form" action="https://formsubmit.co/ajax/A@A.com" method="POST">
+                <!-- إعدادات FormSubmit المخفية -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <input type="text" name="name" class="form-control" placeholder="الاسم الكامل" required>
+                <input type="email" name="email" class="form-control" placeholder="البريد الإلكتروني" required>
+                <textarea name="message" class="form-control" placeholder="رسالتك هنا..." required></textarea>
+
+                <!-- مكان إظهار رسائل النجاح/الخطأ بـ AJAX -->
+                <div id="form-messages"></div>
+
+                <button type="submit" class="btn">إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       Footer
+       ========================================================================== -->
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة &copy; 2026</p>
+    </footer>
+
+    <!-- المكتبات البرمجية وملف JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
