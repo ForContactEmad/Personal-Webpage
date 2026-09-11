@@ -210,7 +210,7 @@ body.nav-open .mobile-nav {
 
 .hero-section__content {
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 600px;
   padding: 1px 1px 5px 5px;
 }
 
@@ -282,9 +282,9 @@ body.nav-open .mobile-nav {
   position: absolute;
   top: 0;
   left: 0;
-  width: 110px;
+  width: 120px;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-light);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -293,7 +293,7 @@ body.nav-open .mobile-nav {
 .skillbar__title span {
   display: block;
   background: rgba(0, 0, 0, 0.15);
-  padding: 0 20px;
+  padding: 0 15px;
   height: 30px;
   line-height: 30px;
 }
@@ -316,7 +316,7 @@ body.nav-open .mobile-nav {
 }
 
 /* ==========================================================================
-   Portfolio Section
+   Portfolio Section & Images
    ========================================================================== */
 .content, .content-slide {
   margin: 0 auto;
@@ -324,8 +324,21 @@ body.nav-open .mobile-nav {
   padding: 0 20px;
 }
 
-.content-slide img {
-  width: 70%;
+.portfolio-img {
+  width: 100%;
+  max-width: 550px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  margin: 0 auto 20px auto;
+  display: block;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.portfolio-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 .fp-controlArrow.fp-next {
@@ -417,6 +430,14 @@ textarea.form-control {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+@media (max-width: 768px) {
+  .portfolio-img {
+    height: 200px;
+    max-width: 90%;
+    margin-bottom: 15px;
+  }
+}
+
 @media (max-width: 500px) {
   .navbar__toggle {
     display: block;
@@ -434,5 +455,9 @@ textarea.form-control {
 
   .hero-section__content h1 {
     font-size: 28px;
+  }
+
+  .portfolio-img {
+    height: 160px;
   }
 }
